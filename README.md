@@ -8,7 +8,7 @@
 ### 📚 SOBRE
 
 - Diretório contendo desenvolvimento dos exercícios na disciplina de Arquitetura e Organização de Computadores(AOC) na Fatec Zona Leste em 2025.1.
-- Possui pequenas propostas de solução, com o intuito de atender aos requisitos solicitados.
+- Possui pequenas propostas de solução, com o intuito de atender aos requisitos solicitados, sob o contexto de simulação de processamento de instruções de máquina.
 
 # 
 ### ⚙️ ESPECIFICAÇÕES
@@ -16,7 +16,7 @@
 #
 ### 📄 REFERENCIAL
 
-- **IDE**: [MIPS Assembly Language Programming](https://computerscience.missouristate.edu/mars-mips-simulator.htm)
+- **IDE**: [MIPS Assembly Language Programming 4.5v](https://computerscience.missouristate.edu/mars-mips-simulator.htm)
 
 #
 ### ⭐ CONTEÚDO ABORDADO
