@@ -1,17 +1,17 @@
 .data
-	    requesita_grande: .asciiz "DIGITE A QUANTIDADE DE CAMISETAS NO TAMANHO (GRANDE): "
-    	requesita_medio: .asciiz "DIGITE A QUANTIDADE DE CAMISETAS NO TAMANHO (MEDIO): "
-    	requesita_pequeno: .asciiz "DIGITE A QUANTIDADE DE CAMISETAS NO TAMANHO (PEQUENO): "
-    	exibe_moeda: .ascii "MONTANTE: R$ "
+    requesita_grande : .asciiz "DIGITE A QUANTIDADE DE CAMISETAS NO TAMANHO (GRANDE): "
+    requesita_medio  : .asciiz "DIGITE A QUANTIDADE DE CAMISETAS NO TAMANHO (MEDIO): "
+    requesita_pequeno: .asciiz "DIGITE A QUANTIDADE DE CAMISETAS NO TAMANHO (PEQUENO): "
+    exibe_moeda      : .ascii "MONTANTE: R$ "
 .text
-        # $t0 - grande
-        # $t1 - medio
-        # $t2 - pequeno
-        # #t3 - auxiliar
-        # $t4 - montante
+    # $t0 - grande
+    # $t1 - medio
+    # $t2 - pequeno
+    # #t3 - auxiliar
+    # $t4 - montante
 
-    	main:
-    		# PRINT(requesita_grande)
+    main: 
+    	    # PRINT(requesita_grande)
     		li $v0, 4
     		la $a0, requesita_grande
     		syscall

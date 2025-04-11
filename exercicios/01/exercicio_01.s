@@ -1,14 +1,14 @@
 .data
-	    requesita_lado_maior: .asciiz "DIGITE O LADO MAIOR(M): "
-    	requisita_lado_menor: .asciiz "DIGITE O LADO MENOR(M): "
-    	exibe_area: .asciiz "AREA DO RETANGULO: "
-    	exibe_metro: .ascii " M"
+    requesita_lado_maior: .asciiz "DIGITE O LADO MAIOR(M): "
+    requisita_lado_menor: .asciiz "DIGITE O LADO MENOR(M): "
+    exibe_area          : .asciiz "AREA DO RETANGULO: "
+    exibe_metro         : .ascii " M"
 .text
-		# $t0 - lado maior
-		# $t1 - lado menor
-		# $t2 - area
+	# $t0 - lado maior
+	# $t1 - lado menor
+	# $t2 - area
 
-    	main:
+    main: 
     		# PRINT(requesita_lado_maior)
     		li $v0, 4
     		la $a0, requesita_lado_maior
