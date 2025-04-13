@@ -14,6 +14,7 @@
 ### ⚙️ ESPECIFICAÇÕES
 
 - **LINGUAGEM**: Assembly MIPS
+- **IDE EXECUTAVEL**: [MARS4_5.jar](https://github.com/kaiquesouzasantoss/fatec-arquitetura-organizacao-computadores/tree/main/assets)
 
 #
 ### 📄 REFERENCIAL
