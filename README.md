@@ -13,10 +13,12 @@
 # 
 ### ⚙️ ESPECIFICAÇÕES
 
+- **LINGUAGEM**: Assembly MIPS
+
 #
 ### 📄 REFERENCIAL
 
-- **IDE**: [MIPS Assembly Language Programming 4.5v](https://computerscience.missouristate.edu/mars-mips-simulator.htm)
+- **IDE**: [MARS 4.5v](https://computerscience.missouristate.edu/mars-mips-simulator.htm)
 - **MATERIAL**: [AOC - Leandro Colevati](https://www.leandrocolevati.com.br/materiais?disciplina=4703-010)
 
 #
