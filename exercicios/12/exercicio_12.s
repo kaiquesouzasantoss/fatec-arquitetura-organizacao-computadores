@@ -13,8 +13,8 @@
     main:
         li $t0, 1
 
-        j run
-    run:    
+        j loop
+    loop:    
         # ENQUANTO($t0 <= 15)
         ble $t0, 15, realiza_leitura
 
@@ -63,7 +63,7 @@
         # contador++
         add $t0, $t0, 1
 
-        j run
+        j loop
     finaliza:
         # PRINT(menor)
         li $v0, 4
