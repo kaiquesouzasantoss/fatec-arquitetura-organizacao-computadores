@@ -35,7 +35,6 @@
         
         # area
         mul $t2, $t0, $t1
-        div $t2, $t2, 2
         
         # PRINT(area)
         li $v0, 4
