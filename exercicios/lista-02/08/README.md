@@ -1,0 +1,3 @@
+## Enunciado
+
+> Escreva um algoritmo que leia (em números inteiros) o valor da compra de um produto da Loja Vende Tudo. A loja só vende produtos de valor entre R$1000.00 e R$9999.99 (Que deve ser validado na entrada). A loja permite pagar o valor em parcelas fixas. O algoritmo deve ler também o valor da parcela a ser paga, que deve ser um valor entre R$100.00 e R$500.00 (Que deve ser validado na entrada). O algoritmo sabendo que a última parcela pode ser de valor inferior às anteriores, deve calcular quantas parcelas serão pagas.
