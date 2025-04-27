@@ -1,87 +1,79 @@
 .data
-    msg_numero: .asciiz "DIGITE UM NUMERO: "
-    msg_falha: .asciiz "[ERRO] VALOR NEGATIVO.\n"
-    exibe_maior: .asciiz "MAIOR NUMERO: "
-    exibe_menor: .asciiz " | MENOR NUMERO: "
+    msg_ano_atual: .asciiz "DIGITE O ANO ATUAL: "
+    msg_mes_atual: .asciiz "DIGITE O MES ATUAL (numericamente): "
+    msg_ano_nasc: .asciiz "DIGITE O ANO DE SEU NASCIMENTO: "
+    msg_mes_nasc: .asciiz "DIGITE O MES DE SEU NASCIMENTO (numericamente): "
+    exibe_idade_meses: .asciiz "IDADE RESULTANTE: "
+    unidade: .asciiz " MES"
 .text
-    # $t0 - maior 
-    # $t1 - menor
-    # $t2 - contador
+    # $t0 - mes_diferenca
+    # $t1 - ano_atual
+    # $t2 - mes_atual
+    # $t3 - ano_nasc
+    # $t4 - mes_nasc
+    # $t5 - auxiliar
 
     main:
-        li $t2, 10
-
-        j loop
-    loop:
-        # contador <= 0
-        ble $t2, 0, finaliza 
-
-        # PRINT(requisita_numero)
+        # PRINT(msg_ano_atual)
         li $v0, 4
-        la $a0, msg_numero
+        la $a0, msg_ano_atual
         syscall
 
-        # INPUT(entrada)
+        # INPUT(ano_atual)
         jal entrada
+        move $t1, $v0
 
-        # entrada < 100
-        ble $v0, 0, falha
-
-        # contador na primeira execucao
-        beq $t2, 10, inicializa_extremos
-
-        # entrada < menor
-        blt $v0, $t1, atribui_menor
-
-        # entrada > maior
-        bgt $v0, $t0, atribui_maior
-
-        j decrementa_contador
-    decrementa_contador:
-        sub $t2, $t2, 1
-
-        j loop
-    falha:
+        # PRINT(msg_mes_atual)
         li $v0, 4
-        la $a0, msg_falha
+        la $a0, msg_mes_atual
         syscall
 
-        j loop
+        # INPUT(mes_atual)
+        jal entrada
+        move $t2, $v0
+
+        # PRINT(msg_ano_nasc)
+        li $v0, 4
+        la $a0, msg_ano_nasc
+        syscall
+
+        # INPUT(ano_nasc)
+        jal entrada
+        move $t3, $v0
+
+        # PRINT(msg_mes_nasc)
+        li $v0, 4
+        la $a0, msg_mes_nasc
+        syscall
+
+        # INPUT(mes_nasc)
+        jal entrada
+        move $t4, $v0
+
+        j calcula_meses
     entrada:
         li $v0, 5
         syscall
 
         jr $ra
-    inicializa_extremos:
-        move $t0, $v0
-        move $t1, $v0
+    calcula_meses:
+        sub $t5, $t1, $t3
+        mul $t0, $t5, 12
 
-        j decrementa_contador
-    atribui_maior:
-        move $t0, $v0
-
-        j decrementa_contador
-    atribui_menor:
-        move $t1, $v0
-
-        j decrementa_contador
+        sub $t5, $t2, $t4
+        add $t0, $t0, $t5
     finaliza:
-        # PRINT(exibe_maior)
+        # PRINT(exibe_idade_meses)
         li $v0, 4
-        la $a0, exibe_maior
+        la $a0, exibe_idade_meses
         syscall
 
-        # PRINT(maior)
+        # PRINT(mes_diferenca)
         li $v0, 1
-        move $a0, $t0
+        add $a0, $t0, 0
         syscall
 
-        # PRINT(exibe_menor)
+        # PRINT(unidade)
         li $v0, 4
-        la $a0, exibe_menor
-        syscall
-
-        # PRINT(menor)
-        li $v0, 1
-        move $a0, $t1
+        la $a0, unidade
         syscall

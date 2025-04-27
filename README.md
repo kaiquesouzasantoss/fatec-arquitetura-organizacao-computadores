@@ -7,7 +7,7 @@
 #
 ### 📚 SOBRE
 
-- Diretório contendo desenvolvimento dos exercícios na disciplina de Arquitetura e Organização de Computadores(AOC) na Fatec Zona Leste em 2025.1.
+- Diretório contendo desenvolvimento dos exercícios na disciplina de Arquitetura e Organização de Computadores (AOC) na Fatec Zona Leste em 2025.
 - Possui pequenas propostas de solução, com o intuito de atender aos requisitos solicitados, sob o contexto de simulação de processamento de instruções de máquina.
 
 # 
