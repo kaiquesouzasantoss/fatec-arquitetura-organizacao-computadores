@@ -1,79 +1,83 @@
 .data
-    msg_ano_atual: .asciiz "DIGITE O ANO ATUAL: "
-    msg_mes_atual: .asciiz "DIGITE O MES ATUAL (numericamente): "
-    msg_ano_nasc: .asciiz "DIGITE O ANO DE SEU NASCIMENTO: "
-    msg_mes_nasc: .asciiz "DIGITE O MES DE SEU NASCIMENTO (numericamente): "
-    exibe_idade_meses: .asciiz "IDADE RESULTANTE: "
-    unidade: .asciiz " MES"
+    msg_a: .asciiz "DIGITE O VALOR DO COEFICIENTE A: "
+    msg_b: .asciiz "DIGITE O VALOR DO COEFICIENTE B: "
+    msg_c: .asciiz "DIGITE O VALOR DO COEFICIENTE C: "
+    exibe_duas_raizes: .asciiz "RESULTANTE: DUAS RAÍZES REAIS"
+    exibe_uma_raiz: .asciiz "RESULTANTE: UMA RAÍZ REAL"
+    exibe_sem_raiz: .asciiz "RESULTANTE: NÃO EXISTEM RAÍZES REAIS!"
 .text
-    # $t0 - mes_diferenca
-    # $t1 - ano_atual
-    # $t2 - mes_atual
-    # $t3 - ano_nasc
-    # $t4 - mes_nasc
-    # $t5 - auxiliar
+    # $t0 - delta
+    # $t1 - a
+    # $t2 - b
+    # $t3 - c
 
     main:
-        # PRINT(msg_ano_atual)
+        # PRINT(msg_a)
         li $v0, 4
-        la $a0, msg_ano_atual
+        la $a0, msg_a
         syscall
 
-        # INPUT(ano_atual)
+        # INPUT(a)
         jal entrada
         move $t1, $v0
 
-        # PRINT(msg_mes_atual)
+        # PRINT(msg_b)
         li $v0, 4
-        la $a0, msg_mes_atual
+        la $a0, msg_b
         syscall
 
-        # INPUT(mes_atual)
+        # INPUT(b)
         jal entrada
         move $t2, $v0
 
-        # PRINT(msg_ano_nasc)
+        # PRINT(msg_c)
         li $v0, 4
-        la $a0, msg_ano_nasc
+        la $a0, msg_c
         syscall
 
-        # INPUT(ano_nasc)
+        # INPUT(c)
         jal entrada
         move $t3, $v0
 
-        # PRINT(msg_mes_nasc)
-        li $v0, 4
-        la $a0, msg_mes_nasc
-        syscall
+        # delta
+        jal calcula_delta
 
-        # INPUT(mes_nasc)
-        jal entrada
-        move $t4, $v0
+        # 
+        bgt $t0, 0, atribui_duas_raizes
+        beq $t0, 0, atribui_uma_raiz
 
-        j calcula_meses
+        j atribui_sem_raiz
     entrada:
         li $v0, 5
         syscall
 
         jr $ra
-    calcula_meses:
-        sub $t5, $t1, $t3
-        mul $t0, $t5, 12
+    calcula_delta:
+        # delta = a * c
+        mul $t0, $t1, $t3
 
-        sub $t5, $t2, $t4
-        add $t0, $t0, $t5
+        # delta = delta * 4
+        mul $t0, $t0, 4
+    
+        # b = b * b
+        mul $t2, $t2, $t2
+
+        # delta = b - delta
+        sub $t0, $t2, $t0
+
+        jr $ra
+    atribui_duas_raizes:
+        la $a0, exibe_duas_raizes
+
+        j finaliza
+    atribui_uma_raiz:
+        la $a0, exibe_uma_raiz
+
+        j finaliza
+    atribui_sem_raiz:
+        la $a0, exibe_sem_raiz
+
+        j finaliza
     finaliza:
-        # PRINT(exibe_idade_meses)
         li $v0, 4
-        la $a0, exibe_idade_meses
-        syscall
-
-        # PRINT(mes_diferenca)
-        li $v0, 1
-        add $a0, $t0, 0
-        syscall
-
-        # PRINT(unidade)
-        li $v0, 4
-        la $a0, unidade
         syscall

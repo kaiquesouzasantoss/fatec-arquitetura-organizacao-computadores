@@ -6,3 +6,11 @@
 > - c) se DELTA menor que zero: imprima a mensagem “NÃO EXISTEM RAÍZES REAIS”.
 
 > (Não é necessário calcular as raízes caso existam).
+
+## Massa de Dados
+
+| Teste | A | B | C | Resultado      |
+|-----------|---------------|---------------|---------------|--------------------|
+| 1         | 1             | 5             | 1             | Duas raízes reais  |
+| 2         | 1             | 2             | 1             | Uma raiz real      |
+| 3         | 1             | 2             | 3             | Sem raízes reais   |
