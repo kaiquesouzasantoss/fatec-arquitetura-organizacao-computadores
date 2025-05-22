@@ -1,3 +1,0 @@
-## Enunciado
-
-> Fazer um algoritmo que solicite um número natural N (a solicitação deve ser repetida caso a entrada seja menor ou igual a zero). N também não pode ser maior que 10 (a solicitação deve ser repetida caso a entrada seja superior a 10). O algoritmo deve pedir ao usuário a entrada de N números inteiros (positivos e negativos) e a saída deve ser quantos números positivos e quantos números negativos foram inseridos (O valor de N não deve ser contado para este cálculo).
