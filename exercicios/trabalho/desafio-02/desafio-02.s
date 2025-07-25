@@ -44,23 +44,20 @@
         divu $t0, $t0, 10      # binário = binário / 10
         mfhi $t3               # resto = último dígito (0 ou 1)
         
-          li $t7, 0          
+        li $t7, 0          
         li $t8, 1 
         beq $t3, $t7, segue
         beq $t3, $t8, segue
         
         bgt $t3, $t7, falha
         bgt $t3, $t8, falha
-      segue:
-        mflo $t0               # quociente = próximo número
-       
-       
+        segue:
+            mflo $t0               # quociente = próximo número
+            mul $t4, $t3, $t2      # resultado da multiplicação = bit * potência de 2
+            add $t1, $t1, $t4      # acumulador decimal += resultado da multiplicação
 
-        mul $t4, $t3, $t2      # resultado da multiplicação = bit * potência de 2
-        add $t1, $t1, $t4      # acumulador decimal += resultado da multiplicação
-
-        sll $t2, $t2, 1        # potência = potência * 2
-        j loop
+            sll $t2, $t2, 1        # potência = potência * 2
+            j loop
     fim:
         # ESCREVA(saida)
         li $v0, 4
